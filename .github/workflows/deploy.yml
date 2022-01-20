@@ -20,4 +20,24 @@ jobs:
         node-version: '16.x'
         cache: 'yarn'
     - run: yarn add @google/clasp
+    - run: |
+      cat << EOF > .clasprc.json
+      {
+        "token": {
+          "access_token": "${ACCESS_TOKEN}",
+          "refresh_token": "${REFRESH_TOKEN}",
+          "scope":  "https://www.googleapis.com/auth/script.projects https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/script.webapp.deploy https://www.googleapis.com/auth/service.management https://www.googleapis.com/auth/script.deployments https://www.googleapis.com/auth/logging.read https://www.googleapis.com/auth/userinfo.email openid",
+          "token_type": "Bearer",
+          "id_token": "${ID_TOKEN}",
+          "expiry_date": 1642688740227
+        },
+        "oauth2ClientSettings": {
+          "clientId": "${CLIENTID}",
+          "clientSecret": "${CLIENTSECRET}",
+          "redirectUri": "http://localhost"
+        },
+        "isLocalCreds": false
+      }
+      EOF
+    - run: envsubst '${{secrets.ACCESS_TOKEN}} ${{secrets.REFRESH_TOKEN}} ${{secrets.ID_TOKEN}} ${{secrets.CLIENTID}} ${{secrets.CLIENTSECRET}}' < .clasprc.json
     - run: yarn clasp deploy
