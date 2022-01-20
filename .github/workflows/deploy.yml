@@ -18,7 +18,7 @@ jobs:
         cache: 'yarn'
     - run: yarn add @google/clasp
     - run: |
-        cat << EOF > .clasprc.json
+        cat << EOF > ~/.clasprc.json
         {
           "token": {
             "access_token": "${ACCESS_TOKEN}",
@@ -36,5 +36,5 @@ jobs:
           "isLocalCreds": false
         }
         EOF
-    - run: envsubst '${{secrets.ACCESS_TOKEN}} ${{secrets.REFRESH_TOKEN}} ${{secrets.ID_TOKEN}} ${{secrets.CLIENTID}} ${{secrets.CLIENTSECRET}}' < .clasprc.json
+    - run: envsubst '${{secrets.ACCESS_TOKEN}} ${{secrets.REFRESH_TOKEN}} ${{secrets.ID_TOKEN}} ${{secrets.CLIENTID}} ${{secrets.CLIENTSECRET}}' < ~/.clasprc.json
     - run: yarn clasp deploy
