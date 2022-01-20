@@ -36,7 +36,8 @@ jobs:
           "isLocalCreds": false
         }
         EOF
-    - run: envsubst '${ACCESS_TOKEN} ${{secrets.REFRESH_TOKEN}} ${{secrets.ID_TOKEN}} ${{secrets.CLIENTID}} ${{secrets.CLIENTSECRET}}' < ~/.clasprc.json
+    - run: envsubst < ~/.clasprc.json
       env:
         ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
+        REFRESH_TOKEN: hello
     - run: yarn clasp deploy
