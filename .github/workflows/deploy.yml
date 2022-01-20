@@ -19,5 +19,5 @@ jobs:
       with:
         node-version: '16.x'
         cache: 'yarn'
-    - run: yarn install @google/clasp
+    - run: yarn add @google/clasp
     - run: yarn clasp deploy
