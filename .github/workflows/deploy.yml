@@ -36,7 +36,7 @@ jobs:
           "isLocalCreds": false
         }
         EOF
-    - run: envsubst < ~/.clasprc.json
+    - run: echo ${REFRESH_TOKEN}
       env:
         ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
         REFRESH_TOKEN: hello
