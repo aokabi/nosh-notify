@@ -1,4 +1,4 @@
-name: deploy script
+name: push script
 
 on:
   push:
@@ -42,4 +42,4 @@ jobs:
         }
         EOF
     - run: envsubst < ~/.clasprc.json.tmpl > ~/.clasprc.json
-    - run: yarn clasp deploy
+    - run: yarn clasp push
