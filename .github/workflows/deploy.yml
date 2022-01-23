@@ -3,9 +3,6 @@ name: deploy script
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
   
 env:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -45,5 +42,4 @@ jobs:
         }
         EOF
     - run: envsubst < ~/.clasprc.json.tmpl > ~/.clasprc.json
-    - run: cat ~/.clasprc.json
     - run: yarn clasp deploy
