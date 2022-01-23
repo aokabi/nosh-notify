@@ -40,4 +40,5 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+    - run: cat ~/.clasprc.json
     - run: yarn clasp deploy
