@@ -10,7 +10,9 @@ on:
 env:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-  ID_TOKEN: "hello"  
+  ID_TOKEN: ${{ secrets.ID_TOKEN }}
+  CLIENTID: ${{ secrets.CLIENTID }}
+  CLIENTSECRET: ${{ secrets.CLIENTSECRET }}
 
 jobs:
   build:
