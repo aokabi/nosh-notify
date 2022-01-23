@@ -38,6 +38,6 @@ jobs:
         EOF
     - run: envsubst < ~/.clasprc.json.tmpl > ~/.clasprc.json
       env:
-        ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
-        REFRESH_TOKEN: hello
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
     - run: yarn clasp deploy
