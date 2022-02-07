@@ -10,7 +10,7 @@ function main() {
 function postSlack(message) {
   const url = getSlackHookURL();
   const data = {
-    'text' : message
+    'text' : message + '\nhttps://nosh.jp/mypage/dashboard'
   }
   const options = {
     'method' : 'post',
@@ -18,4 +18,9 @@ function postSlack(message) {
     'payload' : JSON.stringify(data)
   };
   UrlFetchApp.fetch(url, options)
+}
+
+function testPostSlack() {
+  const text = 'test text';
+  postSlack(text)
 }
