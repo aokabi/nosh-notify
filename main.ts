@@ -7,19 +7,6 @@ function main() {
   postSlack(threads[0].getFirstMessageSubject());
 }
 
-function postSlack(message) {
-  const url = getSlackHookURL();
-  const data = {
-    'text' : message + '\nhttps://nosh.jp/mypage/dashboard'
-  }
-  const options = {
-    'method' : 'post',
-    'contentType': 'application/json',
-    'payload' : JSON.stringify(data)
-  };
-  UrlFetchApp.fetch(url, options)
-}
-
 function testPostSlack() {
   const text = 'test text';
   postSlack(text)
