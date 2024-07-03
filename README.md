@@ -5,3 +5,8 @@ noshのメニュー変更期限メールをslackに流すGoogle Apps Script
 
 ## 手動デプロイ
 - `yarn clasp push`
+
+## クライアント情報更新
+- ローカルで`yarn clasp login`
+- レポジトリのsecretを更新
+  
