@@ -15,11 +15,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Use Node.js 16.x
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '16.x'
+        node-version: '20.x'
         cache: 'yarn'
     - run: yarn install --frozen-lock
     - run: |
@@ -31,7 +31,7 @@ jobs:
             "scope":  "https://www.googleapis.com/auth/script.projects https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/script.webapp.deploy https://www.googleapis.com/auth/service.management https://www.googleapis.com/auth/script.deployments https://www.googleapis.com/auth/logging.read https://www.googleapis.com/auth/userinfo.email openid",
             "token_type": "Bearer",
             "id_token": "${ID_TOKEN}",
-            "expiry_date": 1642688740227
+            "expiry_date": 1720019054006
           },
           "oauth2ClientSettings": {
             "clientId": "${CLIENTID}",
